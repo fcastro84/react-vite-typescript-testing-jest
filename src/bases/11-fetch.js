@@ -1,17 +1,33 @@
 
 
 // fetch in JS 
-const apiKey = 'kKKFxJP6X5b5ljK9vpfAPg67QKbUOxJo';
-const url = 'https://api.giphy.com/v1/gifs/random?api_key=';
+
+const getImage1 = async() => {
+    try {
+        const apiKey = 'kKKFxJP6X5b5ljK9vpfAPg67QKbUOxJo';
+        const urlApi = 'https://api.giphy.com/v1/gifs/random?api_key=';
+        const request = await fetch(`${urlApi}${apiKey}`);
+        const { data } = await request.json()
+
+        const { url } = data.images.original
+
+        const img = document.createElement('img');
+        img.src = url;
+        document.body.append(img);
+    } catch ( error ) {
+        console.log(error)
+    }
+    
+}
 
 
-const request = fetch(`${url}${apiKey}`);
+
+
+
 
 request.then( resp => resp.json())
        .then( ( { data } ) => {
         // console.log(data.images.original.url)
-        const img = document.createElement('img');
-        img.src = data.images.original.url;
-        document.body.append(img);
+       
     })
        .catch(console.error)

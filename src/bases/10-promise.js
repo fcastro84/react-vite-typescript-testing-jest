@@ -1,26 +1,22 @@
 
 
 // Promise in JS 
-import { getHeroesById } from './bases/08-09-import-export';
 
-// const promise = new Promise( (resolve, reject) => {
-//     setTimeout(() => {
-//         resolve('Ok, correct');
-//     }, 2000);
-// });
+import { getHeroesById } from "./08-09-import-export";
 
-const getUserAsync = ( id ) => {
+
+
+
+export const getUserAsync = ( id ) => {
     return new Promise( (resolve, reject) => {
     setTimeout(() => {
-        const heroe = getHeroesById( id );
+        const heroe = getHeroesById(id)
         if( heroe ){
-            resolve( heroe );
+            resolve( heroe )
         } else {
-            reject(' Not exits heroe fot the Id');
+            reject('Not exits heroe fot the Id '+ id);
         }
     }, 2000);
 });
 } 
 
-getUserAsync(4).then(console.log)
-       .catch(console.error)

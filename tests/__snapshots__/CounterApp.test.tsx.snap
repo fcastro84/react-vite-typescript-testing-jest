@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` Test in component <CounterApp/> This has make to match with the snapshot  1`] = `
+<div>
+  <div
+    class="center"
+  >
+    <h1>
+      CounterApp
+    </h1>
+    <span>
+      10
+    </span>
+    <div
+      class="button"
+    >
+      <button>
+        +1
+      </button>
+      <button>
+        -1
+      </button>
+      <button
+        aria-label="btn-reset"
+      >
+        Reset
+      </button>
+    </div>
+  </div>
+</div>
+`;

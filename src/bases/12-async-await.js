@@ -1,19 +1,17 @@
 // Async-Await in JS
 
-const getImage = async () => {
+export const getImage = async () => {
   try {
     const apiKey = "kKKFxJP6X5b5ljK9vpfAPg67QKbUOxJo";
-    const url = "https://api.giphy.com/v1/gifs/random?api_key=";
+    const urlApi = "https://api.giphy.com/v1/gifs/random?api_key=";
 
-    const request = await fetch(`${url}${apiKey}`);
+    const request = await fetch(`${urlApi}${apiKey}`);
     const { data } = await request.json();
+    const { url } = data.images.original;
 
-    const img = document.createElement("img");
-    img.src = data.images.original.url;
-    document.body.append(img);
+    return url
   } catch (error) {
-    console.error(error);
+    return 'Not exits the image'
   }
 };
 
-getImage();
